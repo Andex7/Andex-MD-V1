@@ -1,10 +1,10 @@
 {
-  "name": "gifted-md@v5.0.0",
-  "description": "I am Gifted-Md Whatsapp MultiDevice Whatsapp Bot built in NodeJs to make experience better",
-  "website": "https://web.giftedtechnexus.co.ke",
+  "name": "andex-md@v1.0.0",
+  "description": "I am Andex-Md Whatsapp MultiDevice Whatsapp Bot built in NodeJs to make experience better",
+  "whatsapp": "https://whatsapp.com/channel/0029VaCmrst6hENuWQkMPx24",
   "repository": "https://github.com/mouricedevs/gifted-md",
-  "logo": "https://telegra.ph/file/a202f454c9532c3f5b7f8.jpg",
-  "keywords": ["gifted-md", "giftedtech", "Gifted-Md"],
+  "logo": "https://telegra.ph/file/c8be6c96d4c1ac33b4681.jpg",
+  "keywords": ["andex-md", "andexnew", "Andex-Md"],
   "success_url": "/",
   "stack": "heroku-24",
   "env": { 
@@ -16,12 +16,12 @@
      "OWNER_NAME": {
       "description": "Put the name of Bot Owner",
       "required": false,
-      "value": "GIFTED TECH"
+      "value": "ANDEX MD"
     },
     "OWNER_NUMBER": {
       "description": "Put Bot Owner Numbers",
       "required": false,
-      "value": "254110853827"
+      "value": "94775107287"
     },
      "NOT_ALLOW": {
       "description": "Put value true to disable bot in pm during public mode.",
@@ -91,7 +91,7 @@
     "AUTO_REJECT_CALLS": {
       "description": "Put true if you want to reject call",
       "required": false,
-      "value": "false"
+      "value": "true"
      }
     },
     "formation": {
