@@ -1,5 +1,5 @@
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 import {
     getContentType,
     jidDecode,
@@ -21,15 +21,15 @@ import { getBuffer, getSizeMedia } from '../gift/gifted.cjs'
 import baileys from "@whiskeysockets/baileys";
 const proto = baileys.proto;
 const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 function decodeJid(jid) {
     const { user, server } = jidDecode(jid) || {};
     return user && server ? `${user}@${server}`.trim() : jid;
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 const downloadMedia = async message => {
     let type = Object.keys(message)[0];
     let m = message[type];
@@ -50,7 +50,7 @@ const downloadMedia = async message => {
     }
     return buffer;
 };
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 function serialize(m, sock, logger) {
   // downloadFile function
   async function downloadFile(m) {
@@ -67,7 +67,7 @@ function serialize(m, sock, logger) {
       return null; // or throw the error if you want to propagate it
     }
   }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   // React function
   async function React(emoji) {
     let reactm = {
@@ -78,7 +78,7 @@ function serialize(m, sock, logger) {
     };
     await sock.sendMessage(m.from, reactm);
   }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   // Define the decodeJid function
   sock.decodeJid = (jid) => {
     if (!jid) return jid;
@@ -89,7 +89,7 @@ function serialize(m, sock, logger) {
       return jid;
     }
   };
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   // Define event listener for contacts update
   sock.ev.on('contacts.update', update => {
     for (let contact of update) {
@@ -99,7 +99,7 @@ function serialize(m, sock, logger) {
       }
     }
   });
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   // Define the getName function
   sock.getName = (jid, withoutContact = false) => {
     jid = sock.decodeJid(jid);
@@ -121,7 +121,7 @@ function serialize(m, sock, logger) {
       return (withoutContact ? '' : v.name) || v.subject || v.verifiedName || PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international');
     }
   };
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   // Define the sendContact function
   sock.sendContact = async (jid, kon, quoted = '', opts = {}) => {
     let list = [];
@@ -134,8 +134,8 @@ function serialize(m, sock, logger) {
     }
     sock.sendMessage(jid, { contacts: { displayName: `${list.length} Contacts`, contacts: list }, ...opts }, { quoted });
   };
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   /**
    * 
    * @param {*} jid 
@@ -152,11 +152,11 @@ function serialize(m, sock, logger) {
     } else {
       buffer = await imageToWebp(buff)
     }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
     await sock.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
     return buffer
   }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   /**
    * 
    * @param {*} jid 
@@ -173,11 +173,11 @@ function serialize(m, sock, logger) {
     } else {
       buffer = await videoToWebp(buff)
     }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗*/
     await sock.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
     return buffer
   }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   /**
    * 
    * @param {*} jid 
@@ -186,7 +186,7 @@ function serialize(m, sock, logger) {
    * @returns 
    */
   sock.sendPoll = (jid, name = '', values = [], selectableCount = 1) => { return sock.sendMessage(jid, { poll: { name, values, selectableCount } }) }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   /**
    * 
    * @param {*} jid 
@@ -221,7 +221,7 @@ function serialize(m, sock, logger) {
     await sock.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options })
     return fs.promises.unlink(pathFile)
   }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
   /**
    * 
    * @param {*} message 
@@ -246,7 +246,7 @@ function serialize(m, sock, logger) {
       data
     }
   }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 /**
  * 
  * @param {*} message 
@@ -269,7 +269,7 @@ sock.downloadAndSaveMediaMessage = async (message, filename, attachExtension = t
     await fs.promises.writeFile(trueFileName, buffer);
     return trueFileName;
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 sock.downloadMediaMessage = async (message) => {
     let mime = (message.msg || message).mimetype || '';
     let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0];
@@ -280,8 +280,8 @@ sock.downloadMediaMessage = async (message) => {
     }
     return buffer;
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-       /* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+       /* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
        /**
      * 
      * @param {*} jid 
@@ -301,7 +301,7 @@ sock.downloadMediaMessage = async (message) => {
 				...message.message.viewOnceMessage.message
 			}
 		}
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
         let mtype = Object.keys(message.message)[0]
         let content = await generateForwardMessageContent(message, forceForward)
         let ctype = Object.keys(content)[0]
@@ -324,7 +324,7 @@ sock.downloadMediaMessage = async (message) => {
         await sock.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
         return waMessage
     }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
     sock.cMod = (jid, copy, text = '', sender = sock.user.id, options = {}) => {
         //let copy = message.toJSON()
 		let mtype = Object.keys(copy.message)[0]
@@ -347,10 +347,10 @@ sock.downloadMediaMessage = async (message) => {
 		else if (copy.key.remoteJid.includes('@broadcast')) sender = sender || copy.key.remoteJid
 		copy.key.remoteJid = jid
 		copy.key.fromMe = sender === sock.user.id
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
         return proto.WebMessageInfo.fromObject(copy)
     }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
     if (m.key) {
         m.id = m.key.id;
         m.isSelf = m.key.fromMe;
@@ -499,8 +499,8 @@ sock.downloadMediaMessage = async (message) => {
     }
     return m;
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 export { decodeJid, serialize };
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
