@@ -1,10 +1,10 @@
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 const fs = require('fs')
 const path = require('path')
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const { spawn } = require('child_process')
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 function ffmpeg(buffer, args = [], ext = '', ext2 = '') {
   return new Promise(async (resolve, reject) => {
     try {
@@ -33,7 +33,7 @@ function ffmpeg(buffer, args = [], ext = '', ext2 = '') {
     }
   })
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 /**
  * Convert Audio to Playable WhatsApp Audio
  * @param {Buffer} buffer Audio Buffer
@@ -48,7 +48,7 @@ function toAudio(buffer, ext) {
     '-f', 'mp3'
   ], ext, 'mp3')
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 /**
  * Convert Audio to Playable WhatsApp PTT
  * @param {Buffer} buffer Audio Buffer
@@ -63,7 +63,7 @@ function toPTT(buffer, ext) {
     '-compression_level', '10'
   ], ext, 'opus')
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 /**
  * Convert Audio to Playable WhatsApp Video
  * @param {Buffer} buffer Video Buffer
@@ -79,14 +79,14 @@ function toVideo(buffer, ext) {
     '-preset', 'slow'
   ], ext, 'mp4')
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
 module.exports = {
   toAudio,
   toPTT,
   toVideo,
   ffmpeg,
 }
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
-   /* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */                 
-/* 𝗚𝗜𝗙𝗧𝗘𝗗-𝗠𝗗 𝗩𝟱 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
+   /* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */                 
+/* 𝗔𝗡𝗗𝗘𝗫-𝗠𝗗 */
